@@ -18,8 +18,8 @@
 <p><b>TASK </b></p>
 <p>Iterate through this string and clean up each transaction and store all the information in easier-to-access lists.</p>
 
-<p>`Break up daily_sales` into easy to understand lists `customers`, `sales`, and `threads_sold`.</p>
+<li>Break up 'daily_sales' into easy to understand lists `customers`, `sales`, and `threads_sold`.</li>
 
-<p>Determine the total value of the days sales.</p>
+<li>Determine the total value of the days sales.</li>
 
-<p>How much thread of any specific color was sold?</p>
+<li>How much thread of any specific color was sold?</li>
