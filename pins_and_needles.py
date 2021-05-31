@@ -1,7 +1,7 @@
 # STRINGS
 
 # Pins and needles
-# The cashier'S daily responsibilities involves tallying the number of sales during the day, calculating the total amount of money made, and keeping track of the names of the customers 
+# The cashier's daily responsibilities involves tallying the number of sales during the day, calculating the total amount of money made, and keeping track of the names of the customers 
 
 # PROBLEM
 #  The shop has an extremely outdated register system and stores all of the transaction information in one huge unwieldy string called daily_sales.
@@ -121,9 +121,10 @@ green&white;,;09/15/17,   Gail Phelps   ;,;$30.52
 #------------------------------------------------
 # `Break up daily_sales` into easy to understand lists `customers`, `sales`, and `threads_sold`.
 
-# each transaction is separated from the next transaction by a ,, and then each piece of data within a transaction is separated by the artifact ;,;
+# Note:- each transaction is separated from the next transaction by a ,, and then each piece of data within a transaction is separated by the artifact ;,;
 
-# split up daily_sales into a list of individual transactions, split by ,.  In order not to  split any of the transactions themselves, replace the artifact ;,; to something without a comma.
+# split up daily_sales into a list of individual transactions, split by ,.  
+# In order not to  split any of the transactions themselves, replace the artifact ;,; to something without a comma such as +.
 
 daily_sales_replaced = daily_sales.replace(";,;", "+")
 
@@ -146,10 +147,12 @@ transactions_clean = []
 for transaction in daily_transactions_split:
   transaction_clean = []
   for data_point in transaction:
+    
     transaction_clean.append(data_point.replace("\n", "").strip(" "))
-    transactions_clean.append(transaction_clean)
+  transactions_clean.append(transaction_clean)
 # print(transactions_clean) 
 
+# Create three empty lists. customers, sales, and thread_sold
 # collect the individual data points for each transaction in these empty lists
 customers = []
 sales = []
@@ -164,41 +167,41 @@ for transaction in transactions_clean:
   thread_sold.append(transaction[2])
 
 # print(customers)
-# print(sales)
+print(sales)
 # print(thread_sold)
 
-# Determine the total value of the days sales.
+# Determine the total value of the day's sales.
 total_sales = 0
 for sale in sales:
   # sales is a list of strings. In order to sum these values, remove the $, and set them equal to floats.
   total_sales += float(sale.strip("$"))
-# print(total_sales)
-# 5994.9599999999955
+print(total_sales)
+# output = 1498.7400000000005
 
-# How much thread of any specific color was sold?
-print(thread_sold)
+# # How much thread of any specific color was sold?
+# print(thread_sold)
 
-thread_sold_split = []
-for sale in thread_sold:
-  for color in sale.split("&"):
-    thread_sold_split.append(color)
+# thread_sold_split = []
+# for sale in thread_sold:
+#   for color in sale.split("&"):
+#     thread_sold_split.append(color)
 
-def color_count(color):
-    color_total = 0
-    for thread_color in thread_sold_split:
-      if color == thread_color:
-        color_total += 1
-    return color_total
+# def color_count(color):
+#     color_total = 0
+#     for thread_color in thread_sold_split:
+#       if color == thread_color:
+#         color_total += 1
+#     return color_total
 
-print(color_count("white"))
-# should be 28 not 112
-colors = ["red", "yellow", "green", "white", "black", "blue", "purple"]
+# print(color_count("white"))
+# # should be 28 not 112
+# colors = ["red", "yellow", "green", "white", "black", "blue", "purple"]
 
-for color in colors:
-  print(
-    "thread shed sold {0} threads of {1} thread today."
-    .format(color_count(color), color)
-    )
+# for color in colors:
+#   print(
+#     "thread shed sold {0} threads of {1} thread today."
+#     .format(color_count(color), color)
+#     )
 
 
 
