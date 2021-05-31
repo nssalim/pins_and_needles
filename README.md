@@ -20,6 +20,6 @@
 
 <li>Break up 'daily_sales' into easy to understand lists `customers`, `sales`, and `threads_sold`.</li>
 
-<li>Determine the total value of the days sales.</li>
+<li>Determine the total value of the day's sales.</li>
 
-<li>How much thread of any specific color was sold?</li>
+<li>Find out how much thread of any specific color was sold?</li>
