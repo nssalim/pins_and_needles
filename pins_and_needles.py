@@ -175,33 +175,44 @@ total_sales = 0
 for sale in sales:
   # sales is a list of strings. In order to sum these values, remove the $, and set them equal to floats.
   total_sales += float(sale.strip("$"))
-print(total_sales)
+# print(total_sales)
 # output = 1498.7400000000005
 
-# # How much thread of any specific color was sold?
-# print(thread_sold)
+# Find out how much thread of any specific color was sold.
 
-# thread_sold_split = []
-# for sale in thread_sold:
-#   for color in sale.split("&"):
-#     thread_sold_split.append(color)
+# thread_sold is a list of strings, some are single colors and some are multiple colors separated by the & character.
+# The end product we want here is a list that contains an item for each color thread sold, so no strings that have multiple colors in them.
 
-# def color_count(color):
-#     color_total = 0
-#     for thread_color in thread_sold_split:
-#       if color == thread_color:
-#         color_total += 1
-#     return color_total
+# inspect thread_sold
+print(thread_sold)
 
+# Next, iterate through thread_sold. For each item, check if it is a single color or multiple colors. If it is a single color, append that color to thread_sold_split.
+# If it is multiple colors, first split the string around the & character and then add each color individally to thread_sold_split.
+
+thread_sold_split = []
+for sale in thread_sold:
+  for color in sale.split("&"):
+    thread_sold_split.append(color)
+# list thread_sold_split now contains an entry with the color of every thread sold today.
+
+def color_count(color):
+    color_total = 0
+    for thread_color in thread_sold_split:
+      if color == thread_color:
+        color_total += 1
+    return color_total
 # print(color_count("white"))
-# # should be 28 not 112
-# colors = ["red", "yellow", "green", "white", "black", "blue", "purple"]
+# output 28
 
-# for color in colors:
-#   print(
-#     "thread shed sold {0} threads of {1} thread today."
-#     .format(color_count(color), color)
-#     )
+# Define a list called colors that stores all of the colored threads that Pins and Needles offers:
+colors = ["red", "yellow", "green", "white", "black", "blue", "purple"]
+
+# using the list colors, the string method .format(), and the function color_count, iterate through thread_sold_split and print a sentence that says how many threads of each color were sold today.
+for color in colors:
+  print(
+    "Pins and Needles sold {0} threads of {1} thread today."
+    .format(color_count(color), color)
+    )
 
 
 
