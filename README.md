@@ -22,4 +22,4 @@
 
 <li>Determine the total value of the day's sales.</li>
 
-<li>Find out how much thread of any specific color was sold?</li>
+<li>Find out how much thread of any specific color was sold</li>
